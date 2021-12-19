@@ -241,7 +241,7 @@
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <imageReference key="image" image="restartBlack.png" symbolScale="large"/>
+                                    <imageReference key="image" image="Reset" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="ressetScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ybn-N5-nvf"/>
@@ -305,7 +305,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="restartBlack.png" width="200" height="200"/>
+        <image name="Reset" width="200" height="200"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

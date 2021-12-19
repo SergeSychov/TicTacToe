@@ -60,10 +60,10 @@ class ViewController: UIViewController, ShowGameProtocol {
     let defaults = UserDefaults()
     
     func saveGameState(round: Int, score0: Int, score1: Int, amIClever: Bool) {
-        defaults.set(round, forKey: Strs.roundSTR)
-        defaults.set(score0, forKey: Strs.score0STR)
-        defaults.set(score1, forKey: Strs.score1Str)
-        defaults.set(amIClever, forKey: Strs.cleverStr)
+        defaults.set(round, forKey: Constants.Strs.roundSTR)
+        defaults.set(score0, forKey: Constants.Strs.score0STR)
+        defaults.set(score1, forKey: Constants.Strs.score1Str)
+        defaults.set(amIClever, forKey: Constants.Strs.cleverStr)
     }
     
 
@@ -80,16 +80,19 @@ class ViewController: UIViewController, ShowGameProtocol {
         
         //brain from user defaults
         //if there is no still user defaults just will set values for new game
-        brain = Brain(round: defaults.integer(forKey: Strs.roundSTR),
-                      score0: defaults.integer(forKey: Strs.score0STR),
-                      score1: defaults.integer(forKey: Strs.score1Str),
-                      isClever: defaults.bool(forKey: Strs.cleverStr),
+        brain = Brain(round: defaults.integer(forKey: Constants.Strs.roundSTR),
+                      score0: defaults.integer(forKey: Constants.Strs.score0STR),
+                      score1: defaults.integer(forKey: Constants.Strs.score1Str),
+                      isClever: defaults.bool(forKey: Constants.Strs.cleverStr),
                       with: self)
         
-        easyHardSwitcher.isOn = defaults.bool(forKey: Strs.cleverStr)
+        easyHardSwitcher.isOn = defaults.bool(forKey: Constants.Strs.cleverStr)
         
-        messageLabel.text = Strs.yourTurnStr
+        messageLabel.text = Constants.Strs.yourTurnStr
+        
+        backGround.backgroundColor = UIColor(patternImage: Constants.Imgs.textureImg!)
     }
+    
     
     func setNewGame() {
         self.boardsButtons.forEach { $0.alpha = 1 }
@@ -107,13 +110,17 @@ class ViewController: UIViewController, ShowGameProtocol {
         } completion: { Bool in
             self.brain.strartNewGame()
             self.boardsButtons.forEach { $0.alpha = 1 }
-            self.messageLabel.setText(Strs.yourTurnStr)
+            self.messageLabel.setText(Constants.Strs.yourTurnStr)
             self.roundLabel.setText("\(self.brain.rounds+1)")
         }
     }
         
     
     //MARK: ShowGameProtocol
+
+    var ticImage = Constants.Imgs.ticImg
+    var tocImage = Constants.Imgs.tocImg
+    
     func showBoard(_ board: Board) {
         for index in board.indices {
             let value = board[index]
@@ -129,13 +136,13 @@ class ViewController: UIViewController, ShowGameProtocol {
         
         switch whoWin {
         case 1:
-            messageLabel.text = Strs.youWonStr
+            messageLabel.text = Constants.Strs.youWonStr
             animateWinLine(lineIndexs: winLine)
         case 2:
-            messageLabel.text = Strs.iWonStr
+            messageLabel.text = Constants.Strs.iWonStr
             animateWinLine(lineIndexs: winLine)
         default:
-            messageLabel.setText(Strs.noWon)
+            messageLabel.setText(Constants.Strs.noWon)
             
         }
         roundLabel.setText("\(round + 1)")
@@ -145,13 +152,13 @@ class ViewController: UIViewController, ShowGameProtocol {
     
     //MARK: Animations
     func animateMoveSelf(_ secPerStep:CGFloat = 0.1){
-        self.messageLabel.setText(Strs.myMoveStr)
+        self.messageLabel.setText(Constants.Strs.myMoveStr)
         
         let legalMoves = brain.game.legalMoves
         let totalDelay = CGFloat(legalMoves.count)*secPerStep
         
         
-        let img = brain.amITic ? ticGrayImage : tocGrayImage
+        let img = brain.amITic ? Constants.Imgs.ticGrayImg  : Constants.Imgs.tocGrayImg
         let emptyButtons = legalMoves.map { boardsButtons[$0] }
         
         emptyButtons.forEach { $0.alpha = 0 }
@@ -162,7 +169,7 @@ class ViewController: UIViewController, ShowGameProtocol {
             emptyButtons.forEach { $0.setImage(nil, for: .normal) }
             emptyButtons.forEach { $0.alpha = 1}
             
-            self.messageLabel.setText(Strs.yourTurnStr)
+            self.messageLabel.setText(Constants.Strs.yourTurnStr)
             self.brain.moveSelf()
         }
         
@@ -191,76 +198,24 @@ class ViewController: UIViewController, ShowGameProtocol {
         let but1 = boardsButtons[lineIndexs[0]]
         let but2 = boardsButtons[lineIndexs[1]]
         let but3 = boardsButtons[lineIndexs[2]]
-
+        
         UIView.animate(withDuration: 0.28,
-                               delay: 0.2) {
+                       delay: 0,
+                       options: .curveEaseInOut) {
             UIView.modifyAnimations(withRepeatCount: 3, autoreverses: true, animations: {
                 but1.alpha = 0.2
                 but2.alpha = 0.2
                 but3.alpha = 0.2
             })
         } completion: { Bool in
-            self.messageLabel.setText(Strs.tapOnBoardStr)
+            self.messageLabel.setText(Constants.Strs.tapOnBoardStr)
 
             but1.alpha = 1
             but2.alpha = 1
             but3.alpha = 1
         }
-    }
+   }
     
-    
-    //MARK: Images Management
-    var ticImage:UIImage?
-    var tocImage:UIImage?
-    
-    let ticGrayImage = UIImage(contentsOfFile: Bundle.main.path(forResource: "tic_gray", ofType: "png")!)
-    let tocGrayImage = UIImage(contentsOfFile: Bundle.main.path(forResource: "toc_gray", ofType: "png")!)
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setViewsForMode(isLight: traitCollection.userInterfaceStyle == .light)
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        if #available(iOS 13.0, *) {
-            if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-                setViewsForMode(isLight: traitCollection.userInterfaceStyle == .light)
-            }
-        } else {
-            // Fallback on earlier versions
-            setViewsForMode(isLight: true)
-        }
-    }
-    
-    func setViewsForMode(isLight: Bool){
-        let texturePath:String?
-        let resetButtonPath:String?
-        let ticImagePath:String?
-        let tocImagePath:String?
-        
-        if isLight {
-            texturePath = Bundle.main.path(forResource: "light", ofType: "png")
-            resetButtonPath = Bundle.main.path(forResource: "restartBlack", ofType: "png")
-            ticImagePath = Bundle.main.path(forResource: "tic_black", ofType: "png")
-            tocImagePath = Bundle.main.path(forResource: "toc_black", ofType: "png")
-        } else {
-            texturePath = Bundle.main.path(forResource: "dark", ofType: "png")
-            resetButtonPath = Bundle.main.path(forResource: "restartWhite", ofType: "png")
-            ticImagePath = Bundle.main.path(forResource: "tic_light", ofType: "png")
-            tocImagePath = Bundle.main.path(forResource: "toc_light", ofType: "png")
-        }
-        backGround.backgroundColor = UIColor(patternImage: UIImage(contentsOfFile: texturePath!)!)
-        resetButton.setImage(UIImage(contentsOfFile: resetButtonPath!)!, for: .normal)
-        
-        ticImage = UIImage(contentsOfFile: ticImagePath!)
-        tocImage = UIImage(contentsOfFile: tocImagePath!)
-        
-        showBoard(brain.game.gameBoard)
-        
-    }
 }
 
 

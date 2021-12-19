@@ -7,18 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		953EB0E4276A70C400F81C0F /* toc_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 953EB0E2276A70C400F81C0F /* toc_black.png */; };
-		953EB0E5276A70C400F81C0F /* tic_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 953EB0E3276A70C400F81C0F /* tic_black.png */; };
-		953EB0E8276A715000F81C0F /* toc_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 953EB0E6276A715000F81C0F /* toc_light.png */; };
-		953EB0E9276A715000F81C0F /* tic_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 953EB0E7276A715000F81C0F /* tic_light.png */; };
 		9569A4912753FB9300889307 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569A4902753FB9300889307 /* Game.swift */; };
-		957D340427665F1100EB03BC /* restartBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 957D340327665F1100EB03BC /* restartBlack.png */; };
-		957D340627665FE200EB03BC /* restartWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 957D340527665FE200EB03BC /* restartWhite.png */; };
-		95A2994C276B9840000E9626 /* tic_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 95A2994A276B9840000E9626 /* tic_gray.png */; };
-		95A2994D276B9840000E9626 /* toc_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 95A2994B276B9840000E9626 /* toc_gray.png */; };
 		95A2994F276BE29D000E9626 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A2994E276BE29D000E9626 /* Constants.swift */; };
-		95B57C36274EC0E9000DF38B /* dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B57C35274EC0E9000DF38B /* dark.png */; };
-		95B57C38274EC210000DF38B /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B57C37274EC210000DF38B /* light.png */; };
 		95B57C3A274FF065000DF38B /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B57C39274FF065000DF38B /* BoardView.swift */; };
 		95F487D0274D74B700B826E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F487CF274D74B700B826E0 /* AppDelegate.swift */; };
 		95F487D2274D74B700B826E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F487D1274D74B700B826E0 /* SceneDelegate.swift */; };
@@ -29,18 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		953EB0E2276A70C400F81C0F /* toc_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toc_black.png; sourceTree = "<group>"; };
-		953EB0E3276A70C400F81C0F /* tic_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tic_black.png; sourceTree = "<group>"; };
-		953EB0E6276A715000F81C0F /* toc_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toc_light.png; sourceTree = "<group>"; };
-		953EB0E7276A715000F81C0F /* tic_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tic_light.png; sourceTree = "<group>"; };
 		9569A4902753FB9300889307 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		957D340327665F1100EB03BC /* restartBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartBlack.png; sourceTree = "<group>"; };
-		957D340527665FE200EB03BC /* restartWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartWhite.png; sourceTree = "<group>"; };
-		95A2994A276B9840000E9626 /* tic_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tic_gray.png; sourceTree = "<group>"; };
-		95A2994B276B9840000E9626 /* toc_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toc_gray.png; sourceTree = "<group>"; };
 		95A2994E276BE29D000E9626 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		95B57C35274EC0E9000DF38B /* dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dark.png; sourceTree = "<group>"; };
-		95B57C37274EC210000DF38B /* light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light.png; sourceTree = "<group>"; };
 		95B57C39274FF065000DF38B /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		95F487CC274D74B700B826E0 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F487CF274D74B700B826E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,16 +70,6 @@
 				95B57C39274FF065000DF38B /* BoardView.swift */,
 				95A2994E276BE29D000E9626 /* Constants.swift */,
 				95F487D8274D74B900B826E0 /* Assets.xcassets */,
-				95B57C35274EC0E9000DF38B /* dark.png */,
-				95B57C37274EC210000DF38B /* light.png */,
-				957D340327665F1100EB03BC /* restartBlack.png */,
-				957D340527665FE200EB03BC /* restartWhite.png */,
-				953EB0E3276A70C400F81C0F /* tic_black.png */,
-				953EB0E2276A70C400F81C0F /* toc_black.png */,
-				953EB0E7276A715000F81C0F /* tic_light.png */,
-				953EB0E6276A715000F81C0F /* toc_light.png */,
-				95A2994A276B9840000E9626 /* tic_gray.png */,
-				95A2994B276B9840000E9626 /* toc_gray.png */,
 				95F487DA274D74B900B826E0 /* LaunchScreen.storyboard */,
 				95F487DD274D74B900B826E0 /* Info.plist */,
 			);
@@ -164,19 +134,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				957D340427665F1100EB03BC /* restartBlack.png in Resources */,
-				95B57C38274EC210000DF38B /* light.png in Resources */,
-				95A2994D276B9840000E9626 /* toc_gray.png in Resources */,
-				953EB0E4276A70C400F81C0F /* toc_black.png in Resources */,
-				95A2994C276B9840000E9626 /* tic_gray.png in Resources */,
-				953EB0E5276A70C400F81C0F /* tic_black.png in Resources */,
-				953EB0E8276A715000F81C0F /* toc_light.png in Resources */,
-				953EB0E9276A715000F81C0F /* tic_light.png in Resources */,
 				95F487DC274D74B900B826E0 /* LaunchScreen.storyboard in Resources */,
 				95F487D9274D74B900B826E0 /* Assets.xcassets in Resources */,
 				95F487D7274D74B700B826E0 /* Main.storyboard in Resources */,
-				957D340627665FE200EB03BC /* restartWhite.png in Resources */,
-				95B57C36274EC0E9000DF38B /* dark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
